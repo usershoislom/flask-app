@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}
+Все статьи на сайте
+{% endblock %}
+
+{% block buttons %}
+        <a class="px-4 btn btn-warning navbar-item text-white" href="{{ url_for('main.create_article') }}">Create</a>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    {% if articles|length > 0 %}
+        {% for el in articles %}
+        <div class="alert alert-info">
+            <h2>{{ el.title }}</h2>
+            <p> {{ el.intro }}</p>
+            <p><b>Дата: {{ el.date.date() }}</b></p>
+            <a href="/posts/{{ el.id }}" class="btn btn-warning">Detail</a>
+        </div>
+        {% endfor %}
+    {% else  %}
+    <p>You don't have any notes</p>
+    {% endif %}
+</div>
+{% endblock %}

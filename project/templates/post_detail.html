@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ article.title }}
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ article.title }}</h1>
+
+    <div class="alert alert-info">
+        <h2>{{ article.text }}</h2>
+        <p><b>Дата: {{ article.date.date() }}</b></p>
+        <a href="{{ url_for('main.post_delete', id=article.id) }}" class="btn btn-danger text-white">Delete</a>
+        <a href="{{ url_for('main.post_update', id=article.id) }}" class="btn btn-success text-white">Update</a>
+
+    </div>
+</div>
+{% endblock %}

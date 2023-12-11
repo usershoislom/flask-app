@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 
-{% block content %}
-<h1 class="title">
-  Welcome, {{ name }}!!!
-</h1>
+{% block buttons %}
+    <a class="px-4 btn btn-warning navbar-item text-white" href="{{ url_for('main.create_article') }}">Create</a>
+    <a class="px-2 text-white" href="{{ url_for('main.posts') }}">Notes</a>
 {% endblock %}
